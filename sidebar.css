@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+hr{ margin: 1.5rem 0; width: 100%; }
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: max-content;
+    background-color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0.8rem;
+    display: flex; 
+    flex-shrink: 0;
+    z-index: 999;
+
+    .secciones{
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        height: 100%;
+
+        .seccion{
+            padding: 0.8rem 1.3rem;
+            border-radius: 4px;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 40px 0fr;
+            transition: all 0.3s ease-in-out;
+            color: black;
+
+            .logo{ max-width: 100%; }
+            svg{
+                width: 28px; 
+                height: 28px;
+                overflow: hidden;
+                justify-self: center;
+                fill: black;
+            }
+            .seccion_info{
+                overflow: hidden;
+
+                h3, p{
+                    padding-left: 0.8rem;
+                    text-wrap: nowrap;
+                    color: black;
+                }
+            }
+        }
+        .seccion:not(.elemento_logo){ cursor: pointer; }
+        .seccion:has(.logo){ margin: 0.5rem 0; }
+        .seccion:not(.no_focus):hover{
+            background-color: var(--morado_medio);
+            
+            p, h3, span{ color: white; }
+            svg{ fill: #fff; }
+        }
+        .avatar{
+            margin-top: auto;
+            text-align: left;
+
+            .gest_usuario{
+                object-fit: cover;
+                object-position: top;
+            }
+            .seccion_info{
+                p{ font-size: 0.9rem; }
+                span{ color: black; } 
+            }
+        }
+        .elemento_logo{ margin-bottom: 2rem; }
+        .seccion:nth-child(3){ margin-top: auto; }
+        .grupo_menu{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+    }
+}
+.sidebar:hover .secciones .seccion, .sidebar:active .secciones .seccion{ grid-template-columns: 40px 1fr; }
+.contenido{ margin-left: 110px; }
+
+.div_textarea{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100vh;
+    right: -20%;
+    z-index: 3;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: solid var(--morado_claro) 10px;
+    transition: right 0.3s ease-in-out;
+
+    textarea{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 0.5rem 0.8rem;
+        outline: none;
+        border: none;
+        color: black;
+        font-size: 1rem;
+        transition: border-color 0.3s ease-in-out;
+        background-color: white;
+        resize: none;
+    }
+    textarea::placeholder{
+        font-size: 1rem;
+        position: absolute;
+        top: 10%; left: 50%;
+        transform: translate(-50%, -50%);
+        user-select: none;
+        width: 80%;
+        text-align: center;
+        color: #aaa;
+    }
+    .div_abrir_area{
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        left: -10%; 
+        transform: translate(-20%, -50%);
+        border-radius: 50%;
+        background-color: var(--morado_medio);
+        cursor: pointer;
+        box-shadow: -4px 0 16px rgba(111, 74, 142, 0.5);
+        transition: all 0.3s ease;
+
+        &:hover{
+            background-color: var(--morado_claro);
+            box-shadow: -4px 0 16px rgba(111, 74, 142, 0.5);
+        }
+
+        .abrir_area{
+            width: 22px;
+            height: 22px;
+            fill: white;
+        }
+    }
+    .div_borrar_area{
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 90%;
+        right: 8%;
+        bottom: 5%; 
+        border-radius: 50%;
+        background-color: var(--morado_medio);
+        cursor: pointer;
+        box-shadow: -4px 0 16px rgba(111, 74, 142, 0.5);
+        transition: all 0.3s ease;
+
+        &:hover{
+            background-color: var(--morado_claro);
+            box-shadow: -4px 0 16px rgba(111, 74, 142, 0.5);
+        }
+
+        svg{
+            width: 22px;
+            height: 22px;
+            fill: white;
+        }
+    }
+}
+
+.contenido .contenido_header .div_usuario{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    svg{ fill: white; }
+    strong{ display: flex; gap: 0.5rem; }
+}
